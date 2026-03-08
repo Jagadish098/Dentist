@@ -1,60 +1,67 @@
-import { MousePointerClick, CalendarRange, Building2, SmilePlus } from 'lucide-react';
+import { Search, Calendar, MapPin, Smile } from 'lucide-react';
 
 export default function HowItWorks() {
     const steps = [
         {
-            num: "01",
-            icon: <MousePointerClick className="w-8 h-8 text-blue-600" />,
+            icon: <Search className="w-8 h-8" />,
             title: "Choose Your Service",
-            description: "Browse our comprehensive range of dental treatments"
+            description: "Browse our comprehensive list of dental services and find the care you need."
         },
         {
-            num: "02",
-            icon: <CalendarRange className="w-8 h-8 text-blue-600" />,
+            icon: <Calendar className="w-8 h-8" />,
             title: "Book Appointment",
-            description: "Schedule your visit online or call us directly"
+            description: "Easily schedule your visit online with our flexible booking system."
         },
         {
-            num: "03",
-            icon: <Building2 className="w-8 h-8 text-blue-600" />,
+            icon: <MapPin className="w-8 h-8" />,
             title: "Visit Our Clinic",
-            description: "Come to our modern, comfortable facility"
+            description: "Experience welcoming, state-of-the-art care at our modern facility."
         },
         {
-            num: "04",
-            icon: <SmilePlus className="w-8 h-8 text-blue-600" />,
+            icon: <Smile className="w-8 h-8" />,
             title: "Get Your Perfect Smile",
-            description: "Leave with the healthy, beautiful smile you deserve"
+            description: "Walk out with a healthier, brighter, and more confident smile."
         }
     ];
 
     return (
-        <section className="py-24 bg-white overflow-hidden">
-            <div className="container mx-auto px-4 max-w-7xl">
-                <div className="text-center mb-20 fade-up">
-                    <h2 className="text-[48px] leading-[56px] font-bold text-slate-900 mb-4">How It Works</h2>
-                    <p className="text-[24px] text-slate-600 font-semibold max-w-2xl mx-auto">The Path to Your Perfect Smile</p>
+        <section className="py-20 bg-white relative">
+            <div className="container mx-auto px-4 max-w-7xl animate-fade-in-up">
+                <div className="text-center mb-16">
+                    <span className="text-[#2563EB] font-semibold tracking-wider uppercase text-sm mb-3 block">HOW IT WORKS</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] leading-tight max-w-3xl mx-auto">
+                        The Path to Your Perfect Smile
+                    </h2>
                 </div>
 
                 <div className="relative">
-                    {/* Connecting Line */}
-                    <div className="absolute top-1/2 left-0 w-full h-1 bg-blue-100 -translate-y-1/2 hidden lg:block overflow-hidden rounded-full">
-                        <div className="h-full bg-blue-600 w-full transition-transform duration-1000 ease-out origin-left scale-x-100"></div>
+                    {/* Connecting Line (Desktop) */}
+                    <div className="hidden lg:block absolute top-[90px] left-[12%] right-[12%] h-1 bg-gray-100 -z-10 rounded-full">
+                        <div className="h-full bg-[#2563EB] w-full origin-left scale-x-[1] transition-transform duration-1000"></div>
+                    </div>
+                    {/* Connecting Line (Mobile) */}
+                    <div className="lg:hidden absolute top-[10%] bottom-[10%] left-[39px] w-1 bg-gray-100 -z-10 rounded-full">
+                        <div className="w-full bg-[#2563EB] h-full origin-top scale-y-[1] transition-transform duration-1000"></div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
+                    <div className="grid lg:grid-cols-4 gap-12 lg:gap-8">
                         {steps.map((step, idx) => (
-                            <div key={idx} className="flex flex-col items-center text-center fade-up" style={{ transitionDelay: `${idx * 0.2}s` }}>
-                                <div className="relative mb-8 group hover-lift delay-1 cursor-pointer">
-                                    <div className="w-24 h-24 rounded-full bg-white border-4 border-blue-50 shadow-lg flex items-center justify-center relative z-10 transition-transform duration-300 group-hover:scale-110">
+                            <div key={idx} className={`relative flex flex-row lg:flex-col lg:text-center items-start lg:items-center gap-6 animate-fade-in-up delay-${(idx + 1) * 100}`}>
+                                
+                                <div className="shrink-0 flex flex-col items-center">
+                                    <div className="w-12 h-12 bg-[#2563EB] text-white rounded-full font-bold flex items-center justify-center text-xl shadow-md border-4 border-white">
+                                        {idx + 1}
+                                    </div>
+                                    <div className="w-20 h-20 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2563EB] mt-4 lg:mx-auto">
                                         {step.icon}
                                     </div>
-                                    <div className="absolute -top-4 -right-4 w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-md z-20">
-                                        {step.num}
-                                    </div>
                                 </div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
-                                <p className="text-slate-500 text-base leading-[1.6] max-w-xs">{step.description}</p>
+
+                                <div className="mt-2 lg:mt-4">
+                                    <h3 className="text-xl font-bold text-[#1F2937] mb-2">{step.title}</h3>
+                                    <p className="text-[#6B7280] text-sm leading-relaxed">{step.description}</p>
+                                </div>
+
                             </div>
                         ))}
                     </div>

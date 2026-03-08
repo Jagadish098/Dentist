@@ -1,80 +1,89 @@
-import { Phone, MapPin, Map } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 
 export default function OpeningHours() {
     return (
-        <section id="hours" className="py-24 bg-white">
-            <div className="container mx-auto px-4 max-w-7xl">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
-
-                    <div className="space-y-6">
-                        <div className="bg-slate-50 rounded-2xl p-6 flex items-start gap-4 fade-up delay-1 hover-lift">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <Phone className="w-6 h-6 text-blue-600" />
+        <section id="contact" className="py-20 bg-white">
+            <div className="container mx-auto px-4 max-w-7xl animate-fade-in-up">
+                <div className="flex flex-col lg:flex-row gap-12">
+                    
+                    {/* Left: Clinic Hours Card (50%) */}
+                    <div className="lg:w-1/2 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-10 border border-gray-100 animate-fade-in-left">
+                        <div className="flex items-center gap-4 mb-8">
+                            <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2563EB]">
+                                <Clock className="w-6 h-6" />
                             </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-slate-900 mb-1">Call Us</h3>
-                                <p className="text-slate-500 mb-3">Have questions? Call us now</p>
-                                <a href="tel:5551234567" className="inline-block bg-white border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 px-6 py-2 rounded-full font-semibold transition-colors text-slate-900">
-                                    Call Now
-                                </a>
-                            </div>
+                            <h3 className="text-3xl font-bold text-[#1F2937]">Clinic Hours</h3>
                         </div>
 
-                        <div className="bg-slate-50 rounded-2xl p-6 flex items-start gap-4 fade-up delay-2 hover-lift">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <MapPin className="w-6 h-6 text-blue-600" />
-                            </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-slate-900 mb-1">Location</h3>
-                                <p className="text-slate-500">123 Dental Street, Medical City, ST 12345</p>
-                            </div>
-                        </div>
-
-                        <div className="bg-slate-50 rounded-2xl p-6 flex items-start gap-4 fade-up delay-3 hover-lift">
-                            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                                <Map className="w-6 h-6 text-blue-600" />
-                            </div>
-                            <div className="flex-1">
-                                <h3 className="text-xl font-bold text-slate-900 mb-1">Map View</h3>
-                                <div className="w-full h-32 bg-slate-200 rounded-lg mt-3 overflow-hidden cursor-pointer hover:opacity-90 transition-opacity">
-                                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80" alt="Map Thumbnail" className="w-full h-full object-cover" />
+                        <div className="space-y-6">
+                            <div className="flex justify-between items-center border-b border-gray-100 pb-4">
+                                <span className="font-semibold text-[#1F2937] text-lg">Monday - Friday</span>
+                                <div className="text-right">
+                                    <span className="block text-[#6B7280] font-medium">10:00 AM - 2:00 PM</span>
+                                    <span className="block text-[#6B7280] font-medium">5:00 PM - 9:00 PM</span>
                                 </div>
                             </div>
+                            <div className="flex justify-between items-center border-b border-gray-100 pb-4">
+                                <span className="font-semibold text-[#1F2937] text-lg">Saturday</span>
+                                <span className="text-[#6B7280] font-medium">10:00 AM - 12:00 PM</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                                <span className="font-semibold text-[#1F2937] text-lg">Sunday</span>
+                                <span className="text-red-500 font-bold bg-red-50 px-4 py-1 rounded-full">Closed</span>
+                            </div>
                         </div>
+
+                        <button className="w-full mt-10 bg-red-500 text-white rounded-full py-4 font-bold text-lg hover:bg-red-600 transition-colors animate-pulse hover:animate-none hover:scale-[1.02] shadow-lg shadow-red-200 flex items-center justify-center gap-2">
+                            <Phone className="w-5 h-5 fill-white" />
+                            Dental Emergency
+                        </button>
                     </div>
 
-                    <div className="bg-[#0F172A] rounded-2xl p-8 lg:p-12 text-white fade-up delay-4 shadow-2xl relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full opacity-20 blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-
-                        <h3 className="text-[32px] font-bold mb-8 relative z-10">Clinic Hours</h3>
-
-                        <div className="space-y-4 mb-10 relative z-10">
-                            <div className="flex justify-between items-center py-3 border-b border-slate-700/50">
-                                <span className="text-slate-300 font-medium text-lg">Monday - Friday</span>
-                                <span className="font-semibold text-lg">09:00 - 20:00</span>
+                    {/* Right: Contact Cards (50%) */}
+                    <div className="lg:w-1/2 flex flex-col gap-6">
+                        {/* Call Us */}
+                        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-center justify-between animate-fade-in-right delay-100 group hover:-translate-y-1 transition-transform">
+                            <div className="flex items-center gap-5">
+                                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-300">
+                                    <Phone className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <p className="text-[#6B7280] text-sm font-semibold uppercase tracking-wider mb-1">CALL US</p>
+                                    <p className="font-bold text-[#1F2937] text-xl">(555) 000-1111</p>
+                                </div>
                             </div>
-                            <div className="flex justify-between items-center py-3 border-b border-slate-700/50">
-                                <span className="text-slate-300 font-medium text-lg">Saturday</span>
-                                <span className="font-semibold text-lg">10:00 - 18:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-3">
-                                <span className="text-slate-300 font-medium text-lg">Sunday</span>
-                                <span className="text-slate-500 font-semibold text-lg">Closed</span>
-                            </div>
+                            <a href="tel:5550001111" className="bg-blue-50 text-[#2563EB] font-bold px-5 py-2.5 rounded-full hover:bg-[#2563EB] hover:text-white transition-colors hidden sm:block">
+                                Call Now
+                            </a>
                         </div>
 
-                        <div className="bg-blue-600 rounded-xl p-6 relative z-10 overflow-hidden group">
-                            <div className="absolute inset-0 bg-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                            <div className="relative z-10 flex flex-col items-start gap-4">
-                                <div className="flex items-center gap-3">
-                                    <Phone className="w-6 h-6 animate-pulse" />
-                                    <span className="font-bold text-lg">Dental Emergency?</span>
+                        {/* Location */}
+                        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex items-center justify-between animate-fade-in-right delay-200 group hover:-translate-y-1 transition-transform">
+                            <div className="flex items-center gap-5">
+                                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center text-[#2563EB] group-hover:bg-[#2563EB] group-hover:text-white transition-colors duration-300">
+                                    <MapPin className="w-6 h-6" />
                                 </div>
-                                <p className="text-blue-100">Call Us Anytime for Urgent Care</p>
-                                <a href="tel:5551234567" className="bg-white text-blue-600 hover:bg-slate-50 px-6 py-2 rounded-full font-bold mt-2 inline-block transition-colors">
-                                    Call Now
-                                </a>
+                                <div>
+                                    <p className="text-[#6B7280] text-sm font-semibold uppercase tracking-wider mb-1">LOCATION</p>
+                                    <p className="font-bold text-[#1F2937] text-lg max-w-[200px] leading-tight">123 Dental Street, NY 10001</p>
+                                </div>
                             </div>
+                            <button className="bg-blue-50 text-[#2563EB] font-bold px-5 py-2.5 rounded-full hover:bg-[#2563EB] hover:text-white transition-colors hidden sm:block">
+                                Directions
+                            </button>
+                        </div>
+
+                        {/* Map View */}
+                        <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100 h-[220px] animate-fade-in-right delay-300">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1m2!1s0x89c2588f046ee661%3A0xa0b3281fcecc08c!2sManhattan%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                                width="100%" 
+                                height="100%" 
+                                style={{ border: 0 }} 
+                                allowFullScreen 
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
+                            ></iframe>
                         </div>
                     </div>
 

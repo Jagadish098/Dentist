@@ -1,76 +1,80 @@
+import { Facebook, Twitter, Instagram, Linkedin, Phone, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+
 export default function Footer() {
     return (
-        <footer className="bg-[#0F172A] text-slate-300 pt-20 pb-8 overflow-hidden">
+        <footer className="bg-[#1E3A8A] text-white py-16 animate-fade-in-up">
             <div className="container mx-auto px-4 max-w-7xl">
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-
-                    <div className="fade-up delay-1">
-                        <div className="flex items-center gap-2 mb-6 text-white">
-                            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center font-bold">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 2C8 2 8 6 8 6v3c0 1.5-1 2.5-1 4v5c0 2 2 4 5 4s5-2 5-4v-5c0-1.5-1-2.5-1-4V6s0-4-4-4z" />
-                                </svg>
-                            </div>
-                            <span className="text-xl font-bold">Dental</span>
-                        </div>
-                        <p className="text-slate-400 mb-6 leading-relaxed">
-                            Providing exceptional dental care with modern technology and compassionate service.
+                
+                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-12 mb-16">
+                    {/* Column 1 - Main */}
+                    <div>
+                        <Link to="/" className="flex items-center gap-2 mb-6">
+                            <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C8 2 4 5 4 10C4 13.5 6 15.5 7.5 17C8.5 18 9 19.5 9 21C9 21.6 9.4 22 10 22h4C14.6 22 15 21.6 15 21C15 19.5 15.5 18 16.5 17C18 15.5 20 13.5 20 10C20 5 16 2 12 2ZM12 19V11" stroke="#1E3A8A" strokeWidth="2" strokeLinecap="round"/>
+                            </svg>
+                            <span className="text-2xl font-bold">Dental</span>
+                        </Link>
+                        <p className="text-blue-200 mb-8 leading-relaxed max-w-xs">
+                            Bringing Your Perfect Smile to Life with State-of-the-Art Care.
                         </p>
-                        <div className="space-y-3">
-                            <p>Phone: <a href="tel:5551234567" className="text-blue-400 hover:text-blue-300"> (555) 123-4567</a></p>
-                            <p>Email: <a href="mailto:info@dentalclinic.com" className="text-blue-400 hover:text-blue-300">info@dentalclinic.com</a></p>
-                            <p>Address: 123 Dental Street, Medical City</p>
+                        <div className="space-y-4">
+                            <a href="tel:0000000000" className="flex items-center gap-3 text-blue-100 hover:text-white transition-colors">
+                                <Phone className="w-5 h-5" /> 
+                                (555) 000-1111
+                            </a>
+                            <a href="mailto:example@dental.com" className="flex items-center gap-3 text-blue-100 hover:text-white transition-colors">
+                                <Mail className="w-5 h-5" /> 
+                                example@dental.com
+                            </a>
+                            <div className="flex items-center gap-3 text-blue-100">
+                                <MapPin className="w-5 h-5" /> 
+                                123 Dental Street, NY 10001
+                            </div>
                         </div>
                     </div>
 
-                    <div className="fade-up delay-2">
-                        <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
-                        <ul className="space-y-3">
-                            <li><a href="#hero" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Home</a></li>
-                            <li><a href="#services" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Services</a></li>
-                            <li><a href="#about" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">About Us</a></li>
-                            <li><a href="#book" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Book Appointment</a></li>
-                            <li><a href="#hours" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Contact</a></li>
+                    {/* Column 2 - Quick Links */}
+                    <div>
+                        <h4 className="text-xl font-bold mb-6 text-white">Quick Links</h4>
+                        <ul className="space-y-4">
+                            <li><Link to="/" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">Home</Link></li>
+                            <li><Link to="/services" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">Services</Link></li>
+                            <li><Link to="/about" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">About Us</Link></li>
+                            <li><a href="#book-appointment" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">Contact Us</a></li>
                         </ul>
                     </div>
 
-                    <div className="fade-up delay-3">
-                        <h4 className="text-white font-bold text-lg mb-6">Our Services</h4>
-                        <ul className="space-y-3">
-                            <li><a href="#" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">General Dentistry</a></li>
-                            <li><a href="#" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Dental Implants</a></li>
-                            <li><a href="#" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Teeth Whitening</a></li>
-                            <li><a href="#" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Orthodontics</a></li>
-                            <li><a href="#" className="hover:text-blue-400 hover:translate-x-1 inline-block transition-all">Emergency Care</a></li>
+                    {/* Column 3 - Our Services */}
+                    <div>
+                        <h4 className="text-xl font-bold mb-6 text-white">Our Services</h4>
+                        <ul className="space-y-4">
+                            <li><Link to="/services" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">General Dentistry</Link></li>
+                            <li><Link to="/services" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">Dental Implantation</Link></li>
+                            <li><Link to="/services" className="text-blue-200 hover:text-blue-300 hover:translate-x-2 transition-all duration-300 inline-block font-medium">Teeth Whitening</Link></li>
                         </ul>
                     </div>
-
-                    <div className="fade-up delay-4">
-                        <h4 className="text-white font-bold text-lg mb-6">Subscribe for Updates</h4>
-                        <form className="space-y-4">
-                            <input
-                                type="email"
-                                placeholder="Email Address"
-                                className="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-700 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                            />
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-4 rounded-lg transition-colors"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-
                 </div>
 
-                <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 fade-up delay-5">
-                    <p className="text-slate-500 text-sm">© 2024 Dental Clinic. All Rights Reserved.</p>
-                    <div className="flex gap-6 text-sm text-slate-500">
-                        <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
-                        <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+                {/* Bottom Bar */}
+                <div className="border-t border-blue-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                    <p className="text-blue-300 text-sm">© 2024 Dental Website. All Rights Reserved.</p>
+                    <div className="flex items-center gap-4">
+                        <a href="#" className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1E3A8A] hover:scale-125 transition-all duration-300">
+                            <Facebook className="w-5 h-5 fill-current" />
+                        </a>
+                        <a href="#" className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1E3A8A] hover:scale-125 transition-all duration-300">
+                            <Twitter className="w-5 h-5 fill-current" />
+                        </a>
+                        <a href="#" className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1E3A8A] hover:scale-125 transition-all duration-300">
+                            <Instagram className="w-5 h-5" />
+                        </a>
+                        <a href="#" className="w-10 h-10 bg-blue-900 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-[#1E3A8A] hover:scale-125 transition-all duration-300">
+                            <Linkedin className="w-5 h-5 fill-current" />
+                        </a>
                     </div>
                 </div>
+
             </div>
         </footer>
     );

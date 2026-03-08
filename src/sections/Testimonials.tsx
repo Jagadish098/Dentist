@@ -1,62 +1,84 @@
-import { Star, Quote } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 export default function Testimonials() {
-    const reviews = [
+    const testimonials = [
         {
-            name: "Leslie Alexander",
-            role: "Satisfied Patient",
-            title: "Professional and Friendly!",
-            review: "The staff made me feel so comfortable. Best dental experience I've ever had. Highly recommend!",
-            avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150"
+            rating: 5,
+            text: "Absolutely the best dental care I've ever received. The staff is welcoming, and the procedure was completely painless. Highly recommend Dr. Smith!",
+            name: "Sarah Jenkins",
+            initials: "SJ"
         },
         {
-            name: "Bessie Lane",
-            role: "Satisfied Patient",
-            title: "Highly Recommended!",
-            review: "Amazing results! My smile has never looked better. The team is skilled and caring.",
-            avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150"
+            rating: 5,
+            text: "State-of-the-art facility with incredibly professional staff. I got my teeth whitened here and the results are stunning. Couldn't be happier.",
+            name: "Michael Chen",
+            initials: "MC"
         },
         {
-            name: "Robert Fox",
-            role: "Satisfied Patient",
-            title: "Exceptional Care!",
-            review: "From booking to treatment, everything was seamless. Truly patient-centered approach.",
-            avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150"
+            rating: 5,
+            text: "I was extremely nervous about getting an implant, but the team here made me feel comfortable from start to finish. Exceptional service.",
+            name: "Emily Rodriguez",
+            initials: "ER"
+        },
+        {
+            rating: 5,
+            text: "Affordable, transparent pricing and fantastic care. They explain everything clearly before proceeding. Truly a trust-worthy clinic.",
+            name: "James Wilson",
+            initials: "JW"
         }
     ];
 
     return (
-        <section className="py-24 bg-[#1E3A8A]">
-            <div className="container mx-auto px-4 max-w-7xl">
-                <div className="text-center mb-16 fade-up">
-                    <h2 className="text-[48px] leading-[56px] font-bold text-white mb-4">What Our Patients Have to Say</h2>
+        <section className="py-24 bg-[#1E3A8A] overflow-hidden">
+            <div className="container mx-auto px-4 max-w-7xl animate-fade-in-up">
+                <div className="text-center mb-16">
+                    <span className="text-blue-300 font-semibold tracking-wider uppercase text-sm mb-3 block">TESTIMONIALS</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl mx-auto">
+                        What Our <span className="text-[#3B82F6]">Patients</span> Have to Say
+                    </h2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    {reviews.map((rev, idx) => (
-                        <div key={idx} className="bg-white rounded-2xl p-8 hover-lift fade-up flex flex-col relative" style={{ transitionDelay: `${idx * 0.2}s` }}>
-                            <Quote className="absolute top-8 right-8 w-12 h-12 text-blue-50 opacity-50" />
-
-                            <div className="flex gap-1 mb-6">
-                                {[...Array(5)].map((_, i) => (
-                                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                                ))}
+                {/* Horizontal Scroll / Grid Layout */}
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 hide-scrollbar">
+                    {testimonials.map((testimonial, idx) => (
+                        <div key={idx} className="bg-white rounded-3xl p-8 min-w-[350px] md:min-w-[400px] snap-center hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 shadow-lg">
+                            <div className="flex items-center justify-between mb-6">
+                                <div className="flex gap-1 text-[#FBBF24]">
+                                    {[...Array(testimonial.rating)].map((_, i) => (
+                                        <Star key={i} className="w-5 h-5 fill-current" />
+                                    ))}
+                                </div>
+                                <span className="font-bold text-[#1F2937] text-lg px-3 py-1 bg-yellow-50 text-[#FBBF24] rounded-lg">5.0</span>
                             </div>
-
-                            <h3 className="text-xl font-bold text-slate-900 mb-3">{rev.title}</h3>
-                            <p className="text-slate-600 text-base leading-[1.6] mb-8 flex-1">"{rev.review}"</p>
-
-                            <div className="flex items-center gap-4 mt-auto">
-                                <img src={rev.avatar} alt={rev.name} className="w-12 h-12 rounded-full object-cover border-2 border-blue-100" />
+                            
+                            <p className="text-[#6B7280] italic leading-relaxed mb-8 text-lg flex-grow">"{testimonial.text}"</p>
+                            
+                            <div className="flex items-center gap-4 border-t border-gray-100 pt-6">
+                                <div className="w-12 h-12 rounded-full bg-blue-100 text-[#2563EB] flex items-center justify-center font-bold text-xl">
+                                    {testimonial.initials}
+                                </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900">{rev.name}</h4>
-                                    <p className="text-sm text-slate-500">{rev.role}</p>
+                                    <p className="font-bold text-[#1F2937] leading-tight">{testimonial.name}</p>
+                                    <p className="text-sm text-[#6B7280] flex items-center gap-1 mt-1">
+                                        <svg className="w-4 h-4 text-[#10B981]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                                        Verified Patient
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+            {/* Custom CSS to hide scrollbar but keep functionality */}
+            <style>{`
+                .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                }
+                .hide-scrollbar {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                }
+            `}</style>
         </section>
     );
 }

@@ -1,45 +1,50 @@
-import { Star, Monitor, Tag, Smile } from 'lucide-react';
+import { Stethoscope, Microscope, Wallet, HeartPulse } from 'lucide-react';
 
 export default function WhyChooseUs() {
-    const cards = [
+    const benefits = [
         {
-            icon: <Star className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:scale-110" />,
-            title: "Experienced Dentists",
-            description: "Our team of highly qualified dentists brings years of expertise to every procedure"
+            icon: <Stethoscope className="w-8 h-8 transition-colors duration-300" />,
+            title: "Experienced Dentist",
+            description: "Expert care from highly qualified professionals with years of specialized dental experience."
         },
         {
-            icon: <Monitor className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:scale-110" />,
+            icon: <Microscope className="w-8 h-8 transition-colors duration-300" />,
             title: "Advanced Technology",
-            description: "We use the latest dental technology for precise diagnostics and comfortable treatments"
+            description: "State-of-the-art equipment for precise diagnosis and comfortable treatments."
         },
         {
-            icon: <Tag className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:scale-110" />,
-            title: "Affordable Prices",
-            description: "Quality dental care at competitive prices with flexible payment options"
+            icon: <Wallet className="w-8 h-8 transition-colors duration-300" />,
+            title: "Affordable Price",
+            description: "High-quality dental care with transparent pricing and flexible payment options."
         },
         {
-            icon: <Smile className="w-8 h-8 text-blue-600 transition-transform duration-300 group-hover:scale-110" />,
-            title: "Pain-Free Treatment",
-            description: "Modern techniques and gentle care ensuring a comfortable, anxiety-free experience"
+            icon: <HeartPulse className="w-8 h-8 transition-colors duration-300" />,
+            title: "Pain Free Treatment",
+            description: "Modern techniques ensuring minimally invasive and completely comfortable procedures."
         }
     ];
 
     return (
-        <section className="py-24 bg-slate-50">
+        <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-4 max-w-7xl">
-                <div className="text-center mb-16 fade-up">
-                    <h2 className="text-[48px] leading-[56px] font-bold text-slate-900 mb-4">Why Choose Us</h2>
-                    <p className="text-[24px] text-slate-600 font-semibold max-w-2xl mx-auto">Benefits of Our Dental Services</p>
+                <div className="text-center mb-16 animate-fade-in-up">
+                    <span className="text-[#2563EB] font-semibold tracking-wider uppercase text-sm mb-3 block">WHY CHOOSE US</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#1F2937] leading-tight max-w-3xl mx-auto">
+                        Benefits of Our Dental Services: Your Path to a Healthier Smile
+                    </h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {cards.map((card, idx) => (
-                        <div key={idx} className="group bg-[#EFF6FF] rounded-2xl p-8 hover-lift fade-up flex flex-col items-center text-center transition-all duration-300" style={{ transitionDelay: `${idx * 0.1}s` }}>
-                            <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mb-6 shadow-sm">
-                                {card.icon}
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {benefits.map((benefit, idx) => (
+                        <div 
+                            key={idx} 
+                            className={`bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:-translate-y-2 hover:shadow-xl transition-all duration-300 group delay-${(idx + 1) * 100} animate-fade-in-up`}
+                        >
+                            <div className="w-[60px] h-[60px] bg-blue-50 rounded-2xl flex items-center justify-center text-[#2563EB] mb-6 group-hover:bg-[#2563EB] group-hover:text-white group-hover:scale-110 transition-all duration-300">
+                                {benefit.icon}
                             </div>
-                            <h3 className="text-[18px] font-semibold text-slate-900 mb-4">{card.title}</h3>
-                            <p className="text-slate-500 text-[14px] leading-[1.6]">{card.description}</p>
+                            <h3 className="text-xl font-bold text-[#1F2937] mb-3">{benefit.title}</h3>
+                            <p className="text-[#6B7280] leading-relaxed">{benefit.description}</p>
                         </div>
                     ))}
                 </div>
